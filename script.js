@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const map = L.map("sri-lanka-map", {
     scrollWheelZoom: false // Prevents accidental scrolling on mobile
-  }).setView([7.2, 80.8], 8);
+  }).setView([7.2, 80.0], 8);
 
   // Load OpenStreetMap Map Tiles
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -13,8 +13,15 @@ document.addEventListener("DOMContentLoaded", function () {
     attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
   }).addTo(map);
 
-  // Exact 4 Route Stops for "Two queens on tour"
+  // Updated Route Stops including Negombo as the starting point
   const routeStops = [
+    {
+      day: "Arrival",
+      title: "Negombo",
+      stay: "Airport / Arrival Transfer",
+      coords: [7.2083, 79.8358],
+      desc: "Arrival in Sri Lanka and transfer toward the mountains."
+    },
     {
       day: "Day 1",
       title: "Nuwara Eliya",
@@ -47,11 +54,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const routeCoords = [];
 
-  // Add Custom Numbered Markers & Popups
+  // Add Custom Numbered Markers & Popups (1 to 5)
   routeStops.forEach((stop, index) => {
     routeCoords.push(stop.coords);
 
-    // Numbered Circle Pin Marker (1, 2, 3, 4)
+    // Numbered Circle Pin Marker (1, 2, 3, 4, 5)
     const customIcon = L.divIcon({
       className: 'custom-map-pin',
       html: `<span>${index + 1}</span>`,
