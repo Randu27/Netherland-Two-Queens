@@ -1,0 +1,295 @@
+:root {
+  --primary: #0284c7;
+  --primary-dark: #0369a1;
+  --accent: #f59e0b;
+  --dark-text: #0f172a;
+  --body-text: #1e293b;
+}
+
+/* --- Global Containment Fixes (Prevents Mobile Horizontal Scroll) --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  max-width: 100%;
+  overflow-x: hidden; /* Stops screen popping/scrolling horizontally */
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+  color: var(--body-text);
+  font-size: 1.05rem;
+  line-height: 1.6;
+
+  /* 95% solid white/slate overlay over the pattern */
+  background: 
+    linear-gradient(rgba(248, 250, 252, 0.75), rgba(248, 250, 252, 0.75)),
+    url('images/licensed-image.jpg') repeat fixed;
+  background-size: auto, 550px;
+}
+
+/* --- Agency Branding Styles --- */
+.text-navy {
+  color: #0b2545 !important;
+}
+
+.bg-navy {
+  background-color: #0b2545 !important;
+}
+
+/* --- Header Navbar & Logo Styling (Mobile Responsive) --- */
+.brand-logo {
+  height: 68px; /* High resolution on desktop */
+  max-height: 68px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  transition: transform 0.2s ease, height 0.2s ease;
+}
+
+.brand-logo:hover {
+  transform: scale(1.03);
+}
+
+/* --- Footer Logo Styling --- */
+.footer-logo {
+  height: 64px !important;
+  width: auto;
+  object-fit: contain;
+  background-color: #ffffff;
+  padding: 6px 12px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Footer Styling */
+.agency-footer {
+  background: #0f172a; /* Deep navy-dark background */
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.agency-footer .border-secondary {
+  border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+/* --- Hero Section --- */
+.hero {
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.6) 0%, rgba(15, 23, 42, 0.92) 100%), 
+              url('images/top_background.jpeg') center/cover no-repeat, #0f172a;
+  color: #ffffff;
+  padding: 60px 20px 45px;
+  border-radius: 0 0 28px 28px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  color: #ffffff;
+}
+
+.hero p {
+  font-size: 1.35rem;
+  color: #f8fafc;
+}
+
+.hero-meta {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+/* Overview Banner Card */
+.overview-card {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-left: 6px solid var(--primary);
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+/* Glassmorphism Metric Cards */
+.glass-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  border: 1px solid #cbd5e1;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.25s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.metric-label {
+  color: #475569;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.metric-value {
+  color: #0f172a;
+  font-weight: 800;
+  font-size: 1.6rem;
+}
+
+/* Leaflet Map Styling */
+#sri-lanka-map {
+  height: 480px;
+  width: 100%;
+  border-radius: 20px;
+  z-index: 1;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+/* Custom Leaflet Map Pin Styles */
+.custom-map-pin {
+  background: var(--primary);
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 15px;
+  box-shadow: 0 4px 10px rgba(2, 132, 199, 0.4);
+  transition: transform 0.2s;
+}
+
+.custom-map-pin:hover {
+  transform: scale(1.2);
+  background: var(--accent);
+}
+
+/* Styled Accordions */
+.accordion-item {
+  border: 1px solid #cbd5e1;
+  margin-bottom: 18px;
+  border-radius: 16px !important;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+}
+
+.accordion-button {
+  font-weight: 800;
+  color: #0f172a;
+  padding: 20px 24px;
+  font-size: 1.2rem;
+  background-color: #ffffff;
+}
+
+.accordion-button:not(.collapsed) {
+  background: #e0f2fe;
+  color: var(--primary-dark);
+  border-bottom: 1px solid #bae6fd;
+}
+
+.accordion-body p {
+  color: #1e293b;
+  font-size: 1.08rem;
+  font-weight: 500;
+}
+
+/* Activity Badges */
+.tag {
+  background: #e2e8f0;
+  color: #0f172a;
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 6px 14px;
+  border-radius: 20px;
+  display: inline-block;
+  margin-right: 6px;
+  margin-top: 8px;
+}
+
+.stay-info {
+  background-color: #f8fafc;
+  border: 1px solid #cbd5e1;
+  color: #0f172a;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* Gallery Thumbnails Grid */
+.day-photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.day-photo-grid img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 10px;
+  background-color: #cbd5e1;
+  transition: transform 0.25s ease, filter 0.25s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+}
+
+.day-photo-grid img:hover {
+  transform: scale(1.04);
+  filter: brightness(1.05);
+}
+
+/* Headings & Lists */
+h5 {
+  color: #0f172a;
+  font-weight: 800;
+  font-size: 1.4rem;
+}
+
+.package-list li {
+  color: #0f172a;
+  font-weight: 600;
+  font-size: 1.02rem;
+  margin-bottom: 6px;
+}
+
+/* --- Comprehensive Mobile Responsiveness Media Query --- */
+@media (max-width: 768px) {
+  /* Scale down header logo on small screens */
+  .brand-logo { 
+    height: 46px !important; 
+  }
+  
+  /* Shrink text next to logo so it doesn't push off-screen */
+  .navbar-brand span {
+    font-size: 0.95rem !important;
+  }
+
+  .navbar-brand small {
+    font-size: 0.72rem !important;
+  }
+
+  /* Hero Adjustments */
+  .hero {
+    padding: 40px 15px 30px;
+  }
+
+  .hero h1 { 
+    font-size: 2rem; 
+  }
+
+  .hero p { 
+    font-size: 1.1rem; 
+  }
+
+  /* Grid scaling */
+  .day-photo-grid img { 
+    height: 90px; 
+  }
+
+  #sri-lanka-map {
+    height: 350px;
+  }
+}
